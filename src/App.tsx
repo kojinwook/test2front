@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Routes, Route } from 'react-router-dom';
+import { DETAIL_PATH, MAIN_PATH, UPDATE_PATH, WRITE_PATH } from './constant';
+import Home from './board/main';
+import Write from './board/write';
+import Update from './board/update';
+import Detail from './board/detail';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <Routes>
+    <Route path="/" element={<Home/>}/>
+    <Route path="/write" element={<Write/>}/>
+    <Route path="/update/:boardNumber" element={<Update/>}/>
+    <Route path="/detail/:boardNumber" element={<Detail/>}/>
+   </Routes>
   );
 }
 
